@@ -1,0 +1,13 @@
+django>=5.1,<5.2
+djangorestframework>=3.15.2
+django-cors-headers>=4.4.0
+djangorestframework-simplejwt>=5.3.1
+python-dotenv>=1.0.1
+psycopg2-binary>=2.9.9
+razorpay>=1.4.1
+requests>=2.32.3
+pillow>=10.4.0
+gunicorn>=22.0.0
+whitenoise>=6.7.0
+pytest>=8.3.0
+pytest-django>=4.9.0
