@@ -1,0 +1,36 @@
+# Backend Docker build context exclusions
+.git
+.gitignore
+
+# Python Virtual Environments & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+*.sqlite3
+db.sqlite3
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Test & coverage artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local static & media mounts
+staticfiles/
+media/
+
+# IDE & OS files
+.idea/
+.vscode/
+.gemini/
+.DS_Store
+Thumbs.db

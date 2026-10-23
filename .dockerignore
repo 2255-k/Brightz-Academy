@@ -1,0 +1,42 @@
+# Docker build context exclusions for Bright Mindz Academy
+.git
+.gitignore
+
+# Python Virtual Environments & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+backend/venv/
+backend/.venv/
+backend/env/
+venv/
+.venv/
+env/
+*.sqlite3
+backend/db.sqlite3
+
+# Node & Frontend Build Artifacts
+frontend/node_modules/
+node_modules/
+frontend/dist/
+dist/
+.oxlintrc.json
+npm-debug.log*
+
+# Secrets and environment configurations (mount or inject via env vars instead)
+.env
+.env.*
+!.env.example
+
+# Testing, logs & IDE cache
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+.idea/
+.vscode/
+.gemini/
+.DS_Store
+Thumbs.db
