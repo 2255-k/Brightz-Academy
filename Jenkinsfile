@@ -15,7 +15,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build --build-arg VITE_API_BASE_URL=/api -t $IMAGE:$BUILD_NUMBER -t $IMAGE:latest .'
+                sh 'docker build --platform linux/amd64 --build-arg VITE_API_BASE_URL=/api -t $IMAGE:$BUILD_NUMBER -t $IMAGE:latest .'
             }
         }
 
