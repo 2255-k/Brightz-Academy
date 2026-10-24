@@ -41,7 +41,7 @@ pipeline {
                       --restart unless-stopped -p 80:80 \
                       -e DB_NAME=brightz -e DB_USER=brightz -e DB_PASSWORD=ChangeMe123 \
                       -e DB_HOST=brightz-db -e DB_PORT=5432 \
-                      -e DJANGO_ALLOWED_HOSTS=13.239.9.221,localhost \
+                      -e ALLOWED_HOSTS=13.239.9.221,localhost -e DB_ENGINE=postgres -e CORS_ALLOW_ALL_ORIGINS=True \
                       -e DEBUG=False \
                       $IMAGE:latest
                 '''
