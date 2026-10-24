@@ -15,7 +15,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build --platform linux/amd64 --build-arg VITE_API_BASE_URL=/api -t $IMAGE:$BUILD_NUMBER -t $IMAGE:latest .'
+                sh 'docker build --build-arg VITE_API_BASE_URL=/api -t $IMAGE:$BUILD_NUMBER -t $IMAGE:latest .'
             }
         }
 
@@ -44,16 +44,23 @@ pipeline {
                       -e DJANGO_ALLOWED_HOSTS=13.239.9.221,localhost \
                       -e DEBUG=False \
                       $IMAGE:latest
+                '''
+            }
+        }
+
+        stage('Verify') {
+            steps {
+                sh '''
                     sleep 15
-                    docker ps
-                    docker logs --tail 30 brightz-app
+                    docker ps --filter name=brightz-app --filter status=running | grep brightz-app
+                    docker logs --tail 20 brightz-app
                 '''
             }
         }
     }
 
     post {
-        success { echo 'Pipeline succeeded - app deployed' }
+        success { echo 'Pipeline succeeded - app deployed and running' }
         failure { echo 'Pipeline FAILED - Check logs above' }
     }
 }
