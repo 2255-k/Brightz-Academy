@@ -13,7 +13,7 @@ WORKDIR /app/frontend
 
 # Cache npm dependencies layer
 COPY frontend/package*.json ./
-RUN npm ci || npm install
+RUN npm install --legacy-peer-deps
 
 # Copy frontend source code and compile production assets
 COPY frontend/ ./
