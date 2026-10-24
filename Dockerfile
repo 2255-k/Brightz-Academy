@@ -64,6 +64,7 @@ COPY docker/nginx/nginx.unified.conf /etc/nginx/conf.d/default.conf
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY docker/entrypoint-unified.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
+RUN sed -i '1s/^\xEF\xBB\xBF//; s/\r$//' /entrypoint.sh && (head -1 /entrypoint.sh | grep -q '^#!' || sed -i '1i #!/bin/sh' /entrypoint.sh)
 
 # Prepare runtime volume and log directories
 RUN mkdir -p /app/backend/staticfiles \
